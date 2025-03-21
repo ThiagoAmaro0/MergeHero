@@ -9,6 +9,7 @@ public class DragManager : MonoBehaviour
 {
     [SerializeField] private Image _dragingImage;
     [SerializeField] private Transform _slotsGrid;
+    [SerializeField] private MergeSystem _mergeSystem;
     private SlotHandler _currentSlot;
     private SlotHandler[] _slots;
 
@@ -48,9 +49,18 @@ public class DragManager : MonoBehaviour
                         _currentSlot.RemoveItem();
                         slot.Place(item);
                     }
-                    else
+                    else if (slot != _currentSlot)
                     {
-                        // Merge
+                        if (_mergeSystem.TryMerge(slot.Item, _currentSlot.Item, out ItemSO result))
+                        {
+                            _currentSlot.RemoveItem();
+                            slot.RemoveItem();
+                            slot.Place(result);
+                        }
+                        else
+                        {
+                            slot.Swap(_currentSlot);
+                        }
                     }
                 }
             }
@@ -95,12 +105,12 @@ public class DragManager : MonoBehaviour
     {
         Debug.Log("PickUp", slot);
 
-        // item.CurrentSlot.Item = null;
-
         _currentSlot = slot;
 
         _dragingImage.enabled = true;
         _dragingImage.sprite = _currentSlot.Item.Sprite;
+        _dragingImage.color = _currentSlot.Item.Color;
+        _dragingImage.color = _currentSlot.Item.Color;
     }
 
     public void Place()
@@ -108,6 +118,7 @@ public class DragManager : MonoBehaviour
         _dragingImage.enabled = false;
         _dragingImage.sprite = null;
         _currentSlot = null;
+        _dragingImage.color = Color.white;
     }
 
     public bool GetEmptySlot(out SlotHandler slot)

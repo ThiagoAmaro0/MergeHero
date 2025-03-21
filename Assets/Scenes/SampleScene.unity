@@ -1193,8 +1193,56 @@ Transform:
   m_Children:
   - {fileID: 1823708349}
   - {fileID: 1142130371}
+  - {fileID: 213884520}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &213884519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 213884520}
+  - component: {fileID: 213884521}
+  m_Layer: 0
+  m_Name: MergeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &213884520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213884519}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 194249037}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &213884521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213884519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0662129ace48c464bad9ec1c47384599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _swordRecipe: {fileID: 11400000, guid: 2265987ecf9f44b42953613f51497112, type: 2}
+  _armorRecipe: {fileID: 11400000, guid: 8924b396d2ef2cc4eae8b19cdaa849de, type: 2}
+  _shieldRecipe: {fileID: 11400000, guid: 3b39c96dcd1de8144927d4f6335de881, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,6 +1255,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1301,7 +1350,7 @@ Camera:
   far clip plane: 1000
   field of view: 48
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1332,6 +1381,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1499507087}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_AssetsPPU: 80
+  m_RefResolutionX: 360
+  m_RefResolutionY: 640
+  m_CropFrame: 1
+  m_GridSnapping: 1
+  m_FilterMode: 0
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1001 &561543179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2060,7 +2133,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -22.000008}
+  m_AnchoredPosition: {x: 0, y: -22}
   m_SizeDelta: {x: 0, y: -84.000015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &849777450
@@ -2668,12 +2741,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f29d993678c67724fb43f90523375fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemPrice: 10
+  _itemPrice: 1
   _coin: {fileID: 11400000, guid: dfb0fadab2dd09946b92385dc1fde09d, type: 2}
   _coinText: {fileID: 849777450}
   _buyButton: {fileID: 63069199}
   _items:
-  - {fileID: 11400000, guid: 8b57e5fe6c29a6044b9a35d59596e5de, type: 2}
+  - {fileID: 11400000, guid: 535a5da58cb68f24f89d8ff3b804f869, type: 2}
+  - {fileID: 11400000, guid: 1c9b6e9f4df016f4bb8bafe279a1f614, type: 2}
+  - {fileID: 11400000, guid: fe089712e21904148a784134b6f23281, type: 2}
+  _coinSpriteTag: <sprite="coin" index=0>
 --- !u!1001 &1165589859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3726,6 +3802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dragingImage: {fileID: 1255103979}
   _slotsGrid: {fileID: 1269692448}
+  _mergeSystem: {fileID: 213884521}
 --- !u!1001 &1825901845
 PrefabInstance:
   m_ObjectHideFlags: 0

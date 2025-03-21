@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c95edf67c8ae85d499265f10bd0058aa, type: 3}
+  m_Name: HelmetRecipeSO
+  m_EditorClassIdentifier: 
+  _craftPath:
+  - {fileID: 11400000, guid: 535a5da58cb68f24f89d8ff3b804f869, type: 2}
+  - {fileID: 11400000, guid: 0b55052f7dac6d649aee28a01b37cab6, type: 2}
+  - {fileID: 11400000, guid: 481717c187f85634e857c1df5f935de7, type: 2}
+  - {fileID: 11400000, guid: db400b7b6948c644abc439123cfb3004, type: 2}
+  - {fileID: 11400000, guid: d2cf23035eff759409b15a5a9dadbdfe, type: 2}
+  - {fileID: 11400000, guid: ae77d1c99893cda408729633da85d10c, type: 2}
+  - {fileID: 11400000, guid: 945983afbffb103478a65a375435d652, type: 2}
+  - {fileID: 11400000, guid: 41551fb5acf4b90439a926e30e762fb9, type: 2}
+  - {fileID: 11400000, guid: aef957bb784b8c448b1be77ef84ca18c, type: 2}
+  - {fileID: 11400000, guid: 35631fce75f754f4497d055e53003148, type: 2}

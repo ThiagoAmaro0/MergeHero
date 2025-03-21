@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c95edf67c8ae85d499265f10bd0058aa, type: 3}
+  m_Name: SwordRecipeSO
+  m_EditorClassIdentifier: 
+  _craftPath:
+  - {fileID: 11400000, guid: fe089712e21904148a784134b6f23281, type: 2}
+  - {fileID: 11400000, guid: 2d27d734c0d51694493b3c07bfecb272, type: 2}
+  - {fileID: 11400000, guid: f010a0a683c97394c976f2786c170b0a, type: 2}
+  - {fileID: 11400000, guid: 830bd57367e6c5149a9d302e50145ef2, type: 2}
+  - {fileID: 11400000, guid: 7f2de90dbb55e0b42ae3a7030066d078, type: 2}
+  - {fileID: 11400000, guid: e44a7bdbc0728d0429b85b072b809f46, type: 2}
+  - {fileID: 11400000, guid: 56bdcea0b1bb0b14e85bd41eab85b659, type: 2}
+  - {fileID: 11400000, guid: 5b369b85471b00c439ea33218d35ecb0, type: 2}
+  - {fileID: 11400000, guid: 172da91124245174ba75a2ca90e58dfa, type: 2}
+  - {fileID: 11400000, guid: 8e781d855aafe4d478420d729a21b5ba, type: 2}

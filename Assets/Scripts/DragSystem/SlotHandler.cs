@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,12 +18,15 @@ public class SlotHandler : MonoBehaviour
         if (_item)
         {
             _icon.sprite = _item.Sprite;
+            _icon.color = _item.Color;
         }
     }
 
     public void RestoreItem()
     {
         _icon.enabled = true;
+        _icon.sprite = _item.Sprite;
+        _icon.color = _item.Color;
     }
 
     public void RemoveItem()
@@ -30,6 +34,7 @@ public class SlotHandler : MonoBehaviour
         _item = null;
         _icon.enabled = false;
         _icon.sprite = null;
+        _icon.color = Color.white;
     }
 
     public void PickUp()
@@ -48,8 +53,19 @@ public class SlotHandler : MonoBehaviour
             _item = item;
             _icon.enabled = true;
             _icon.sprite = item.Sprite;
+            _icon.color = item.Color;
 
             DragManager.instance.Place();
         }
+    }
+
+    public void Swap(SlotHandler currentSlot)
+    {
+        ItemSO temp = _item;
+        _item = currentSlot.Item;
+        currentSlot._item = temp;
+
+        RestoreItem();
+        currentSlot.RestoreItem();
     }
 }
