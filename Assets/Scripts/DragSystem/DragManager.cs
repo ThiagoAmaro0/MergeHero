@@ -8,7 +8,9 @@ using UnityEngine.UI;
 public class DragManager : MonoBehaviour
 {
     [SerializeField] private Image _dragingImage;
+    [SerializeField] private Transform _slotsGrid;
     private SlotHandler _currentSlot;
+    private SlotHandler[] _slots;
 
     public SlotHandler CurrentSlot { get => _currentSlot; }
     public static DragManager instance;
@@ -21,7 +23,9 @@ public class DragManager : MonoBehaviour
             return;
         }
         instance = this;
+        _slots = _slotsGrid.GetComponentsInChildren<SlotHandler>();
     }
+
 
     void Update()
     {
@@ -104,5 +108,19 @@ public class DragManager : MonoBehaviour
         _dragingImage.enabled = false;
         _dragingImage.sprite = null;
         _currentSlot = null;
+    }
+
+    public bool GetEmptySlot(out SlotHandler slot)
+    {
+        slot = null;
+        for (int i = 0; i < _slots.Length; i++)
+        {
+            if (!_slots[i].Item)
+            {
+                slot = _slots[i];
+                break;
+            }
+        }
+        return slot;
     }
 }

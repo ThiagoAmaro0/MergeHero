@@ -43,7 +43,7 @@ public class SlotHandler : MonoBehaviour
 
     public void Place(ItemSO item)
     {
-        if (DragManager.instance.CurrentSlot && !_item)
+        if (!_item)
         {
             _item = item;
             _icon.enabled = true;

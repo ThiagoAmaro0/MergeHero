@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: 3128648348688585932}
-  _item: {fileID: 11400000, guid: 8b57e5fe6c29a6044b9a35d59596e5de, type: 2}
+  _item: {fileID: 0}
 --- !u!1 &5561821560267316442
 GameObject:
   m_ObjectHideFlags: 0
