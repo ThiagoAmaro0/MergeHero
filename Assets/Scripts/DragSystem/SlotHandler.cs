@@ -10,6 +10,7 @@ public class SlotHandler : MonoBehaviour
     [SerializeField] private Image _icon;
     [SerializeField] private ItemSO _item;
 
+    private ItemSO _lastItem;
     public ItemSO Item { get => _item; }
 
     void OnEnable()
@@ -25,8 +26,9 @@ public class SlotHandler : MonoBehaviour
     public void RestoreItem()
     {
         _icon.enabled = true;
-        _icon.sprite = _item.Sprite;
-        _icon.color = _item.Color;
+        _item = _lastItem;
+        _icon.sprite = _lastItem.Sprite;
+        _icon.color = _lastItem.Color;
     }
 
     public void RemoveItem()
@@ -46,11 +48,12 @@ public class SlotHandler : MonoBehaviour
         }
     }
 
-    public void Place(ItemSO item)
+    public virtual void Place(ItemSO item)
     {
         if (!_item)
         {
             _item = item;
+            _lastItem = _item;
             _icon.enabled = true;
             _icon.sprite = item.Sprite;
             _icon.color = item.Color;
@@ -59,7 +62,7 @@ public class SlotHandler : MonoBehaviour
         }
     }
 
-    public void Swap(SlotHandler currentSlot)
+    public virtual void Swap(SlotHandler currentSlot)
     {
         ItemSO temp = _item;
         _item = currentSlot.Item;
