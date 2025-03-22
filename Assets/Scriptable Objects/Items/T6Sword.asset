@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: T6Sword
   m_EditorClassIdentifier: 
   _sprite: {fileID: 21300000, guid: 6f02d2f4430dfb64096ce6ffa076c089, type: 3}
-  _color: {r: 0.96981126, g: 0.69043595, b: 0, a: 1}
+  _color: {r: 0.96862745, g: 0.78857106, b: 0, a: 1}
+  _type: 0
+  _power: 3
+  _secondaryPower: 0.6

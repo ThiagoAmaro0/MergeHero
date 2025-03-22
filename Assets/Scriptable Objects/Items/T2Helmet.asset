@@ -15,3 +15,5 @@ MonoBehaviour:
   _sprite: {fileID: 21300000, guid: bfcfa0a40526a244aad413655d62afe9, type: 3}
   _color: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
   _type: 1
+  _power: 4
+  _secondaryPower: 0

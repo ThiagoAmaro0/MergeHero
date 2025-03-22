@@ -22,7 +22,7 @@ public class MergeSystem : MonoBehaviour
                         }
                     }
                     break;
-                case ItemSO.ItemType.ARMOR:
+                case ItemSO.ItemType.HELMET:
                     for (int i = 0; i < _armorRecipe.CraftPath.Length; i++)
                     {
                         if (item1 == _armorRecipe.CraftPath[i] && i + 1 < _armorRecipe.CraftPath.Length)

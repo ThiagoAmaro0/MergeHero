@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class SlotHandler : MonoBehaviour
 {
     [SerializeField] private Image _icon;
-    [SerializeField] private ItemSO _item;
+    [SerializeField] protected ItemSO _item;
 
     private ItemSO _lastItem;
     public ItemSO Item { get => _item; }

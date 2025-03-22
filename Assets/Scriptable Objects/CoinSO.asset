@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98568b7eacdc4334aa3a966962c52efd, type: 3}
   m_Name: CoinSO
   m_EditorClassIdentifier: 
-  _initialAmount: 30
+  _initialAmount: 10

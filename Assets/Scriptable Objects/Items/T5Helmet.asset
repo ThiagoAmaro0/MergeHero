@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: T5Helmet
   m_EditorClassIdentifier: 
   _sprite: {fileID: 21300000, guid: bfcfa0a40526a244aad413655d62afe9, type: 3}
-  _color: {r: 0.6603774, g: 0.32318237, b: 0.11836946, a: 1}
+  _color: {r: 0.5471698, g: 0.22612461, b: 0.032004245, a: 1}
   _type: 1
+  _power: 10
+  _secondaryPower: 0
