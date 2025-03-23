@@ -8,6 +8,7 @@ public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private PlayerStatsSO _playerStats;
     [SerializeField] private Image _healthBar;
+    [SerializeField] private Animator _animator;
     private Enemy _enemy;
     private float _damage;
     private float _attackSpeed;
@@ -48,6 +49,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void Attack()
     {
+        _animator.SetTrigger("Attack");
         _nextAttackTime = Time.time + 1 / _attackSpeed;
         if (_enemy.Hit(_damage))
         {
@@ -88,6 +90,8 @@ public class PlayerCombat : MonoBehaviour
 
     public void Heal()
     {
+        TextParticle.instance.NewText(_maxHealth.ToString(), transform.position + new Vector3(0, .5f, 0), 1f, Color.green);
+        _animator.Play("Idle");
         _currentHealth = _maxHealth;
         _healthBar.fillAmount = _currentHealth / _maxHealth;
     }
@@ -105,11 +109,14 @@ public class PlayerCombat : MonoBehaviour
         if (missChance > _dodge)
         {
             float realDamage = damage - _armor;
+            TextParticle.instance.NewText(realDamage.ToString(), transform.position + new Vector3(0, .5f, 0), 1f, Color.red);
             if (realDamage > 0)
             {
                 _currentHealth -= realDamage;
                 if (_currentHealth <= 0)
                 {
+                    _nextAttackTime = Mathf.Infinity;
+                    _animator.Play("Death");
                     _enemy.onAttack -= Hit;
                     _enemy = null;
                     _healthBar.fillAmount = 0;
@@ -117,12 +124,14 @@ public class PlayerCombat : MonoBehaviour
                 }
                 else
                 {
+                    _animator.SetTrigger("Hit");
                     _healthBar.fillAmount = _currentHealth / _maxHealth;
                 }
             }
         }
         else
         {
+            TextParticle.instance.NewText("MISS", transform.position + new Vector3(0, .5f, 0), 1f, Color.white);
             Debug.Log("DODGE");
         }
     }

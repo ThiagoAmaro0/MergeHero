@@ -16,4 +16,4 @@ MonoBehaviour:
   _color: {r: 0, g: 0.42267543, b: 0.77254903, a: 1}
   _type: 2
   _power: 2
-  _secondaryPower: 0.06
+  _secondaryPower: 0.2

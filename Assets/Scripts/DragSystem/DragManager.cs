@@ -53,13 +53,14 @@ public class DragManager : MonoBehaviour
                     {
                         if (_mergeSystem.TryMerge(slot.Item, _currentSlot.Item, out ItemSO result))
                         {
+                            TextParticle.instance.NewText("LEVEL UP", slot.transform.position, 1, Color.white);
                             _currentSlot.RemoveItem();
                             slot.RemoveItem();
                             slot.Place(result);
                         }
                         else
                         {
-                            slot.Swap(_currentSlot);
+                            _currentSlot.Swap(slot);
                         }
                     }
                 }
@@ -103,7 +104,6 @@ public class DragManager : MonoBehaviour
 
     public void PickUp(SlotHandler slot)
     {
-        Debug.Log("PickUp", slot);
 
         _currentSlot = slot;
 

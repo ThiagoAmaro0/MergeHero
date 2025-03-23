@@ -64,11 +64,11 @@ public class SlotHandler : MonoBehaviour
 
     public virtual void Swap(SlotHandler currentSlot)
     {
-        ItemSO temp = _item;
-        _item = currentSlot.Item;
-        currentSlot._item = temp;
-
-        RestoreItem();
-        currentSlot.RestoreItem();
+        ItemSO item = _item;
+        ItemSO current = currentSlot.Item;
+        _item = null;
+        currentSlot._item = null;
+        Place(current);
+        currentSlot.Place(item);
     }
 }

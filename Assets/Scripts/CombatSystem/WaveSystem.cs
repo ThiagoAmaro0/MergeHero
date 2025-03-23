@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Linq;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class WaveSystem : MonoBehaviour
     [SerializeField] private WaveSO[] _waves;
     [SerializeField] private PlayerCombat _playerCombat;
     [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private Transform _combatPoint;
     [SerializeField] private float _spawnDelay = 1f;
     [SerializeField] private TMP_Text _currentWaveText;
     [SerializeField] private TMP_Text _nextWaveText;
@@ -43,6 +45,12 @@ public class WaveSystem : MonoBehaviour
 
     private void RestartWave()
     {
+        StartCoroutine(DelayedRestart());
+    }
+
+    private IEnumerator DelayedRestart()
+    {
+        yield return new WaitForSeconds(1f);
         if (_currentEnemy)
         {
             Destroy(_currentEnemy.gameObject);
@@ -90,8 +98,10 @@ public class WaveSystem : MonoBehaviour
         yield return new WaitForSeconds(_spawnDelay);
         if (_currentEnemy)
             _currentEnemy.onDie -= NewEnemy;
-        _currentEnemy = Instantiate(_enemies[0], _spawnPoint.position, Quaternion.identity);
+        _currentEnemy = Instantiate(_enemies[_enemyIndex], _spawnPoint.position, Quaternion.identity);
         _playerCombat.SetEnemy(_currentEnemy);
         _currentEnemy.onDie += NewEnemy;
+
+        _currentEnemy.transform.DOMove(_combatPoint.position, .75f);
     }
 }
