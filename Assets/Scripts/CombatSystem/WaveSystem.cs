@@ -80,16 +80,9 @@ public class WaveSystem : MonoBehaviour
     {
         if (_enemies != null)
         {
-            if (_enemyIndex + 1 <= _enemies.Length)
-            {
-                _enemyIndex++;
-                StartCoroutine(SpawnEnemy());
-                UpdateUI();
-            }
-            else
-            {
-                NewWave();
-            }
+            _enemyIndex++;
+            StartCoroutine(SpawnEnemy());
+            UpdateUI();
         }
     }
 
@@ -98,10 +91,16 @@ public class WaveSystem : MonoBehaviour
         yield return new WaitForSeconds(_spawnDelay);
         if (_currentEnemy)
             _currentEnemy.onDie -= NewEnemy;
-        _currentEnemy = Instantiate(_enemies[_enemyIndex], _spawnPoint.position, Quaternion.identity);
-        _playerCombat.SetEnemy(_currentEnemy);
-        _currentEnemy.onDie += NewEnemy;
-
-        _currentEnemy.transform.DOMove(_combatPoint.position, .75f);
+        if (_enemyIndex < _enemies.Length)
+        {
+            _currentEnemy = Instantiate(_enemies[_enemyIndex], _spawnPoint.position, Quaternion.identity);
+            _playerCombat.SetEnemy(_currentEnemy);
+            _currentEnemy.onDie += NewEnemy;
+            _currentEnemy.transform.DOMove(_combatPoint.position, .75f);
+        }
+        else
+        {
+            NewWave();
+        }
     }
 }

@@ -22,12 +22,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 619798503202483329, guid: bed0693dfa376624f94f97e6fede96c7, type: 3}
       propertyPath: _attackSpeed
-      value: 2
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3866290106043954445, guid: bed0693dfa376624f94f97e6fede96c7, type: 3}
       propertyPath: m_Name
       value: BigPinkSlimeEmeny Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5671824648655261899, guid: bed0693dfa376624f94f97e6fede96c7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: dfb5675aa89dee5449826500143b15c4, type: 2}
     - target: {fileID: 5936740282276869078, guid: bed0693dfa376624f94f97e6fede96c7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 1.75

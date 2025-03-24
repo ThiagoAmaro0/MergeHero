@@ -10,6 +10,8 @@ public class DragManager : MonoBehaviour
     [SerializeField] private Image _dragingImage;
     [SerializeField] private Transform _slotsGrid;
     [SerializeField] private MergeSystem _mergeSystem;
+
+    [SerializeField] private RectTransform canvasRect;
     private SlotHandler _currentSlot;
     private SlotHandler[] _slots;
 
@@ -72,7 +74,10 @@ public class DragManager : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
                 StartCoroutine(CheckMissPlace());
         }
-        _dragingImage.rectTransform.anchoredPosition = Input.mousePosition;
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, Input.mousePosition, Camera.main, out Vector2 localPoint))
+        {
+            _dragingImage.rectTransform.localPosition = localPoint;
+        }
     }
 
     private bool GetSlot(out SlotHandler slot)
